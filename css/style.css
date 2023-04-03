@@ -728,3 +728,15 @@ section {
 	text-align: left;
 	margin: 30px;
 }
+
+form#passagerForm {
+	position: absolute;
+	z-index: 5;
+	background-color: rgba(0, 0, 0, 0.9);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 70%;
+	height: 70%;
+	padding: 2%;
+}

@@ -1,5 +1,5 @@
 window.onload = function () {
-    document.querySelector("section > form").addEventListener("submit", (e) => {
+    document.querySelector("form#passagerForm").addEventListener("submit", (e) => {
         e.preventDefault();
         let nameValue = document.getElementById("name").value;
         let gender_menValue = document.getElementById("gender_men").checked;
