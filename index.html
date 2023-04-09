@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<title>COMPP</title>
 	<script src='js/main.js'></script>
+	<link href='css/fonts.css' rel='stylesheet' />
 	<link href='css/style.css' rel='stylesheet' />
 </head>
 
@@ -12,67 +13,147 @@
 	<main>
 		<article>
 			<section>
-				<form id="passagerForm">
-					<div>
-						<label for="name">Name:</label>
-						<input id="name" type="text" value="John Doe">
+				<div id="boardingPass-wrapper">
+					<div class="boardingPass-left boardingPass-part">
+						<div class="boardingPass-part-wrapper">
+							<div class="boradingPass-left-header">
+								<img src="img/logo.png" alt="White Star Line Logo">
+								<p>White Star Line</p>
+							</div>
+							<div class="boradingPass-left-content">
+								<form id="passagerForm" method="POST">
+									<div class="form-row">
+										<div class="input-wrapper">
+											<label for="name">Name</label>
+											<input id="name" type="text" value="John Doe">
+										</div>
+										<div class="input-wrapper">
+											<label for="age">Age</label>
+											<input id="age" type="number" value="69">
+										</div>
+										<div class="input-wrapper radio">
+											<p>Gender</p>
+											<div>
+												<input type="radio" checked id="gender_men" name="gender_men" value="men">
+												<label for="gender_men">Men</label>
+											</div>
+											<div>
+												<input type="radio" id="gender_women" name="gender_women" value="women">
+												<label for="gender_women">Women</label>
+											</div>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="input-wrapper radio">
+											<p>Ticket Class</p>
+											<div>
+												<input type="radio" checked id="tclass_1" name="tclass_1" value="1">
+												<label for="tclass_1">VIP</label>
+											</div>
+											<div>
+												<input type="radio" id="tclass_2" name="tclass_2" value="2">
+												<label for="tclass_3">First Class</label>
+											</div>
+											<div>
+												<input type="radio" id="tclass_3" name="tclass_3" value="3">
+												<label for="tclass_3">Economic</label>
+											</div>
+										</div>
+										<div class="input-wrapper">
+											<label for="price">Ticket Price</label>
+											<input id="price" type="number" value="420">
+										</div>
+										<div class="input-wrapper select">
+											<label for="cabinSector">Cabin Sector</label>
+											<select name="cabinSector" id="cabinSector">
+												<option value="none">No Cabin</option>
+												<option value="a">Sector A</option>
+												<option value="b">Sector B</option>
+												<option selected value="c">Sector C</option>
+												<option value="d">Sector D</option>
+												<option value="e">Sector E</option>
+												<option value="f">Sector F</option>
+												<option value="g">Sector G</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="input-wrapper">
+											<label for="sib_sp">Amount of Spouse and Sibings on Board</label>
+											<input id="sib_sp" type="number" value="4">
+										</div>
+										<div class="input-wrapper">
+											<label for="child_par">Amount of Children and Parents on Board</label>
+											<input id="child_par" type="number" value="8">
+										</div>
+										<div class="input-wrapper radio">
+											<p>Port of embarkation</p>
+											<div>
+												<input type="radio" id="port_cherbourg" name="port_cherbourg" value="C">
+												<label for="port_cherbourg">Cherbourg</label>
+											</div>
+											<div>
+												<input type="radio" checked id="port_queenstown" name="port_queenstown" value="Q">
+												<label for="port_queenstown">Queenstown</label>
+											</div>
+											<div>
+												<input type="radio" id="port_southampton" name="port_southampton" value="S">
+												<label for="port_southampton">Southampton</label>
+											</div>
+										</div>
+									</div>
+								</form>
+								<img class="ticket__barcode" src="img/barcode.png" alt="Fake barcode" />
+							</div>
+						</div>
 					</div>
-					<div>
-						<label for="age">Age:</label>
-						<input id="age" type="number" value="69">
+					<div class="boardingPass-right boardingPass-part">
+						<div class="boardingPass-part-wrapper">
+							<div class="boradingPass-right-header">
+								<p>Boarding Pass</p>
+							</div>
+							<div class="boradingPass-right-content">
+								<div class="name_value">
+									<p>Name</p>
+									<span></span>
+								</div>
+								<div class="age_value">
+									<p>Age</p>
+									<span></span>
+								</div>
+								<div class="gender_value">
+									<p>Gender</p>
+									<span></span>
+								</div>
+								<div class="tclass_value">
+									<p>Ticket Class</p>
+									<span></span>
+								</div>
+								<div class="price_value">
+									<p>Ticket Price</p>
+									<span></span>
+								</div>
+								<div class="cabinSector_value">
+									<p>Cabin Sector</p>
+									<span></span>
+								</div>
+								<div class="sib_sp_value">
+									<p>Amount of Spouse and Sibings on Board</p>
+									<span></span>
+								</div>
+								<div class="child_par_value">
+									<p>Amount of Children and Parents on Board</p>
+									<span></span>
+								</div>
+								<div class="port_value">
+									<p>Port of embarkation</p>
+									<span></span>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div>
-						<p>Gender:</p>
-						<input type="radio" checked id="gender_men" name="gender_men" value="men">
-						<label for="gender_men">Men</label><br>
-						<input type="radio" id="gender_women" name="gender_women" value="women">
-						<label for="gender_women">Women</label><br>
-					</div>
-					<div>
-						<p>Ticket Class:</p>
-						<input type="radio" checked id="tclass_1" name="tclass_1" value="1">
-						<label for="tclass_1">VIP</label><br>
-						<input type="radio" id="tclass_2" name="tclass_2" value="2">
-						<label for="tclass_3">First Class</label><br>
-						<input type="radio" id="tclass_3" name="tclass_3" value="3">
-						<label for="tclass_3">Economic</label><br>
-					</div>
-					<div>
-						<label for="price">Ticket Price:</label>
-						<input id="price" type="number" value="420">
-					</div>
-					<div>
-						<label for="cabinSector">Cabin Sector:</label>
-						<select name="cabinSector" id="cabinSector">
-							<option value="none">No Cabin</option>
-							<option value="a">Sector A</option>
-							<option value="b">Sector B</option>
-							<option selected value="c">Sector C</option>
-							<option value="d">Sector D</option>
-							<option value="e">Sector E</option>
-							<option value="f">Sector F</option>
-							<option value="g">Sector G</option>
-						</select>
-					</div>
-					<div>
-						<label for="sib_sp">Amount of Spouse and Sibings on Board:</label>
-						<input id="sib_sp" type="number" value="4">
-					</div>
-					<div>
-						<label for="child_par">Amount of Children and Parents on Board:</label>
-						<input id="child_par" type="number" value="8">
-					</div>
-					<div>
-						<p>Port of embarkation:</p>
-						<input type="radio" id="port_cherbourg" name="port_cherbourg" value="C">
-						<label for="port_cherbourg">Cherbourg</label><br>
-						<input type="radio" checked id="port_queenstown" name="port_queenstown" value="Q">
-						<label for="port_queenstown">Queenstown</label><br>
-						<input type="radio" id="port_southampton" name="port_southampton" value="S">
-						<label for="port_southampton">Southampton</label><br>
-					</div>
-					<button id="submitButton" type="submit" name="submitButton">Board</button>
-				</form>
+				</div>
+				<button id="submitButton" type="submit" name="submitButton">Board the Titanic</button>
 				<div class="cloudPane">
 					<div class="bigCloud" id="cloud1">
 						<div class="largeCircle" id="circ1">

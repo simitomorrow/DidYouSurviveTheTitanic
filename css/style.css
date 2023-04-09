@@ -2,15 +2,11 @@
 body,
 html {
 	background-color: black;
-	color: white;
 	height: 100vh;
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
-}
-
-canvas {
-	display: block;
+	font-family: "SourceSansPro";
 }
 
 main,
@@ -668,75 +664,164 @@ section {
 	}
 }
 
-.textBody {
-	height: 100%;
-	width: 1200px;
-	padding: 15px 15px 15px 15px;
-}
-
-.leftText {
-	width: 800px;
-	top: 600px;
-	position: absolute;
-	margin-left: 20px;
-
-	/*border-style: solid;
-	  border-width: 2px;
-	  border-color: black;*/
-}
-
-.leftText h2 {
-	font-family: "Century Gothic";
-	letter-spacing: -2px;
-	font-size: 40px;
-	font-weight: normal;
-	margin-left: 20px;
-}
-
-.leftText p {
-	font-family: "arial";
-	font-size: 15px;
-	font-weight: normal;
-	line-height: 30px;
-	text-align: center;
-	z-index: 5;
-}
-
-.rightText {
-	width: 300px;
-	height: auto;
-	position: relative;
-	left: 875px;
-	top: 200px;
-	/*border-style: solid;
-	  border-width: 2px;
-	  border-color: black;*/
-}
-
-.rightText h4 {
-	font-family: "Century Gothic";
-	font-size: 20px;
-	font-weight: normal;
-	margin-left: 20px;
-}
-
-.rightText p {
-	font-family: "arial";
-	font-size: 12px;
-	font-weight: normal;
-	line-height: 20px;
-	text-align: left;
-	margin: 30px;
-}
-
-form#passagerForm {
+#boardingPass-wrapper {
 	position: absolute;
 	z-index: 5;
-	background-color: rgba(0, 0, 0, 0.9);
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+	width: 1200px;
+	height: 500px;
+	display: flex;
+	flex-direction: row;
+}
+
+#boardingPass-wrapper .boardingPass-part {
+	/*background-color: rgba(255, 255, 255, 0.8);*/
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 18%, rgba(255, 255, 255, 0.9) 18%);
+	border-radius: 40px;
+	padding: 40px;
+}
+
+#boardingPass-wrapper .boardingPass-left {
 	width: 70%;
-	height: 70%;
-	padding: 2%;
+	height: calc(100% - 80px);
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+	padding-right: unset;
+}
+
+#boardingPass-wrapper .boardingPass-right {
+	width: 30%;
+	height: calc(100% - 80px);
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+	padding-left: unset;
+}
+
+
+#boardingPass-wrapper .boardingPass-right .boardingPass-part-wrapper {
+	height: 100%;
+	width: calc(100% + 2px);
+	border-left: 4px dotted black;
+	margin-left: -2px;
+}
+
+#boardingPass-wrapper .boardingPass-left .boardingPass-part-wrapper {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+#boardingPass-wrapper .boradingPass-left-content {
+	display: flex;
+	flex-direction: row;
+	height: 85%;
+	position: relative;
+}
+
+#boardingPass-wrapper .boradingPass-right-content{
+	display: flex;
+	flex-direction: column;
+	height: 85%;
+	position: relative;
+	padding-left: 40px;
+}
+
+#boardingPass-wrapper .boradingPass-left-header,
+#boardingPass-wrapper .boradingPass-right-header {
+	display: flex;
+	flex-direction: row;
+	height: calc(15% - 15px);
+	padding-bottom: 30px;
+	align-items: center;
+	margin-top: -15px;
+}
+
+#boardingPass-wrapper .boradingPass-left-header img {
+	height: 100%;
+	object-fit: contain;
+}
+
+div#boardingPass-wrapper .boradingPass-left-header p,
+div#boardingPass-wrapper .boradingPass-right-header p {
+	margin: unset;
+	font-size: 30px;
+	color:white;
+	margin-left: 30px;
+	text-transform: uppercase;
+}
+
+div#boardingPass-wrapper .boradingPass-right-header p {
+	margin-left: unset;
+	padding-left: 40px;
+}
+
+#boardingPass-wrapper .boardingPass-left .boradingPass-left-content img {
+	position: absolute;
+	top: 3%;
+	left: 85%;
+	width: 10%;
+	height: 94%;
+	object-fit: cover;
+}
+
+form#passagerForm {
+	display: flex;
+	flex-direction: column;
+	width: calc(90% - 40px);
+}
+
+form#passagerForm .form-row{
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
+	height: calc(100% / 3);
+}
+
+form#passagerForm .input-wrapper {
+	display: flex;
+	flex-direction: column;
+	width: calc(100% / 3);
+}
+
+form#passagerForm .input-wrapper:not(.radio) label,
+form#passagerForm .input-wrapper > p:first-of-type,
+#boardingPass-wrapper .boradingPass-right-content div > p {
+	font-family: "Oswald";
+	text-transform: uppercase;
+	font-size: 16px;
+	margin: unset;
+}
+
+form#passagerForm input:not([type=radio]),
+form#passagerForm select {
+	width: 70%;
+}
+
+form#passagerForm input,
+form#passagerForm select,
+form#passagerForm .input-wrapper.radio label,
+#boardingPass-wrapper .boradingPass-left-header p,
+#boardingPass-wrapper .boradingPass-right-header p {
+	font-size: 22px;
+	border: none;
+	font-weight: 600;
+	background: transparent;
+}
+
+#submitButton {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	bottom: 10%;
+	z-index: 10;
+	background-color: white;
+	padding: 10px 30px;
+	outline: 0;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: 24px;
+	margin: unset;
 }
