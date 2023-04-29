@@ -89,15 +89,15 @@
 										<div class="input-wrapper radio">
 											<p>Port of embarkation</p>
 											<div>
-												<input type="radio" id="port_cherbourg" name="port_cherbourg" value="C">
+												<input type="radio" id="port_cherbourg" name="port_cherbourg" value="Cherbourg">
 												<label for="port_cherbourg">Cherbourg</label>
 											</div>
 											<div>
-												<input type="radio" checked id="port_queenstown" name="port_queenstown" value="Q">
+												<input type="radio" checked id="port_queenstown" name="port_queenstown" value="Queenstown">
 												<label for="port_queenstown">Queenstown</label>
 											</div>
 											<div>
-												<input type="radio" id="port_southampton" name="port_southampton" value="S">
+												<input type="radio" id="port_southampton" name="port_southampton" value="Southampton">
 												<label for="port_southampton">Southampton</label>
 											</div>
 										</div>
@@ -288,6 +288,65 @@
 					</div>
 				</div>
 				<div class="ocean">
+					<div id="titanicWrapper">
+						<div id="titanicWrapperRotation">
+							<svg width="682" height="225" viewBox="0 0 682 225" fill="none" xmlns="http://www.w3.org/2000/svg" id="titanic">
+								<path
+									d="M618.263 180.5L681.5 91.5L539.5 98.8035L447 103.561L62 123.363L1 126.5C10.6984 149.51 18.8429 166.742 27.0303 180.5H618.263Z"
+									fill="#66CEEB" />
+								<path d="M66.5 224.5H587L618.263 180.5H27.0303C38.5993 199.94 50.2541 212.441 66.5 224.5Z" fill="#F22A27" />
+								<path d="M343 28H315.5H288V48.5H315.5H343V28Z" fill="#EE2B24" />
+								<path d="M166 28H140H114V48.5H140H166V28Z" fill="#EE2B24" />
+								<path d="M464 48.5H491H518V28H491H464V48.5Z" fill="#EE2B24" />
+								<path d="M62 100.5V123.363L447 103.561L192.5 101.538L166 101.327L140 101.12L114 100.913L62 100.5Z" fill="#5B6667" />
+								<path fill-rule="evenodd" clip-rule="evenodd"
+									d="M447 103.561L539.5 98.8035V58H518H491H464H447V82.5H343H315.5H288H192.5V101.538L447 103.561ZM327.5 89.5L211.5 90.5V95.5H327.5V89.5ZM514.5 70H467V76H514.5V70Z"
+									fill="#5B6667" />
+								<path d="M114 48.5V100.913L140 101.12V48.5H114Z" fill="#59CAEB" />
+								<path d="M114 0.5V28H140V0.5H114Z" fill="#59CAEB" />
+								<path d="M288 0.5V28H315.5V0.5H288Z" fill="#59CAEB" />
+								<path d="M288 48.5V82.5H315.5V48.5H288Z" fill="#59CAEB" />
+								<path d="M464 0.5V28H491V0.5H464Z" fill="#59CAEB" />
+								<path d="M464 48.5V58H491V48.5H464Z" fill="#59CAEB" />
+								<path d="M166 28V0.5H140V28H166Z" fill="#1CA3D5" />
+								<path d="M166 101.327V48.5H140V101.12L166 101.327Z" fill="#1CA3D5" />
+								<path d="M343 28V0.5H315.5V28H343Z" fill="#1CA3D5" />
+								<path d="M343 82.5V48.5H315.5V82.5H343Z" fill="#1CA3D5" />
+								<path d="M518 28V0.5H491V28H518Z" fill="#1CA3D5" />
+								<path d="M518 58V48.5H491V58H518Z" fill="#1CA3D5" />
+								<path d="M211.5 90.5L327.5 89.5V95.5H211.5V90.5Z" fill="#303535" />
+								<path d="M467 70H514.5V76H467V70Z" fill="#303535" />
+								<path
+									d="M618.263 180.5L681.5 91.5L539.5 98.8035M618.263 180.5L587 224.5H66.5C50.2541 212.441 38.5993 199.94 27.0303 180.5M618.263 180.5H27.0303M27.0303 180.5C18.8429 166.742 10.6984 149.51 1 126.5L62 123.363M62 123.363V100.5L114 100.913M62 123.363L447 103.561M447 103.561L539.5 98.8035M447 103.561L192.5 101.538M539.5 98.8035V58H518M192.5 101.538V82.5H288M192.5 101.538L166 101.327M114 100.913V48.5M114 100.913L140 101.12M166 101.327V48.5M166 101.327L140 101.12M288 82.5V48.5M288 82.5H315.5M343 82.5H447V58H464M343 82.5V48.5M343 82.5H315.5M464 58V48.5M464 58H491M518 58V48.5M518 58H491M114 28V0.5H140M114 28V48.5M114 28H140M166 28V0.5H140M166 28V48.5M166 28H140M166 48.5H140M114 48.5H140M288 28V0.5H315.5M288 28V48.5M288 28H315.5M343 28V0.5H315.5M343 28V48.5M343 28H315.5M343 48.5H315.5M288 48.5H315.5M464 48.5V28M464 48.5H491M518 48.5V28M518 48.5H491M518 28V0.5H491M518 28H491M464 28V0.5H491M464 28H491M140 0.5V28M140 101.12V48.5M315.5 0.5V28M315.5 48.5V82.5M491 0.5V28M491 48.5V58M211.5 90.5L327.5 89.5V95.5H211.5V90.5ZM467 70H514.5V76H467V70Z"
+									stroke="black" stroke-width="0.2" />
+							</svg>
+							<div id="chimney-smoke-box1" class="chimney-smoke-box">
+								<div id="chimney-smoke1" class="chimney-smoke"></div>
+								<div id="chimney-smoke2" class="chimney-smoke"></div>
+								<div id="chimney-smoke3" class="chimney-smoke"></div>
+								<div id="chimney-smoke4" class="chimney-smoke"></div>
+								<div id="chimney-smoke5" class="chimney-smoke"></div>
+								<div id="chimney-smoke6" class="chimney-smoke"></div>
+							</div>
+							<div id="chimney-smoke-box2" class="chimney-smoke-box">
+								<div id="chimney-smoke1" class="chimney-smoke"></div>
+								<div id="chimney-smoke2" class="chimney-smoke"></div>
+								<div id="chimney-smoke3" class="chimney-smoke"></div>
+								<div id="chimney-smoke4" class="chimney-smoke"></div>
+								<div id="chimney-smoke5" class="chimney-smoke"></div>
+								<div id="chimney-smoke6" class="chimney-smoke"></div>
+							</div>
+							<div id="chimney-smoke-box3" class="chimney-smoke-box">
+								<div id="chimney-smoke1" class="chimney-smoke"></div>
+								<div id="chimney-smoke2" class="chimney-smoke"></div>
+								<div id="chimney-smoke3" class="chimney-smoke"></div>
+								<div id="chimney-smoke4" class="chimney-smoke"></div>
+								<div id="chimney-smoke5" class="chimney-smoke"></div>
+								<div id="chimney-smoke6" class="chimney-smoke"></div>
+							</div>
+						</div>
+					</div>
+					<div class="wave"></div>
 					<div class="wave"></div>
 					<div class="wave"></div>
 					<div class="wave"></div>

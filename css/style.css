@@ -18,6 +18,129 @@ section {
 }
 
 /* Ocean */
+#titanicWrapper {
+	animation: shipping 50s ease-in infinite;
+	transform: translate(-100%, -45%);
+	display: inline-block;
+	z-index: 2;
+	position: relative;
+}
+
+#titanicWrapperRotation {
+	display: inline-block;
+	animation: shippingUpAndDown 3s ease-in-out alternate infinite;
+}
+
+#titanic {
+	z-index: 1;
+	position: relative;
+}
+
+@keyframes smoke {
+	0% {
+		opacity: 1;
+		border-radius: 50%;
+		transform: scale(1)
+	}
+	80% {
+		transform: translate3d(-40px, -150px, 0px) rotate(20deg) skew(-30deg) scale(2);
+		filter: blur(5px);
+		border-radius: 50%;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+#box {
+	background: #8ba9c9;
+	background: -moz-linear-gradient(-45deg, #8ba9c9 0%, #ab9fc6 84%, #ab9fc6 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, #8ba9c9), color-stop(84%, #ab9fc6), color-stop(100%, #ab9fc6));
+	background: -webkit-linear-gradient(-45deg, #8ba9c9 0%, #ab9fc6 84%, #ab9fc6 100%);
+	background: -o-linear-gradient(-45deg, #8ba9c9 0%, #ab9fc6 84%, #ab9fc6 100%);
+	background: -ms-linear-gradient(-45deg, #8ba9c9 0%, #ab9fc6 84%, #ab9fc6 100%);
+	background: linear-gradient(135deg, #8ba9c9 0%, #ab9fc6 84%, #ab9fc6 100%);
+	border: 1px dotted whitesmoke;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1a90c7', endColorstr='#8f5dda', GradientType=1);
+	height: 100vh;
+	margin: 0;
+	width: 100%;
+}
+
+#chimney-smoke-box1 {
+	left: 125px;
+}
+
+#chimney-smoke-box2 {
+	left: 300px;
+}
+
+#chimney-smoke-box3 {
+	left: 475px;
+}
+
+.chimney-smoke-box {
+	height: 50px;
+	top: 0;
+	position: absolute;
+	width: 30px;
+}
+
+.chimney-smoke {
+	animation: smoke 3.5s infinite ease-out;
+	background: #2c2c2c;
+	background: -webkit-repeating-linear-gradient(90deg, transparent 0%, #2c2c2c 50%);
+	background: -o-repeating-linear-gradient(90deg, transparent 0%, #2c2c2c 50%);
+	background: -moz-repeating-linear-gradient(90deg, transparent 0%, #2c2c2c 50%);
+	background: repeating-linear-gradient(90deg, transparent 0%, #2c2c2c 50%);
+	filter: blur(4px);
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+#chimney-smoke2 {
+	top: -55px;
+	animation-delay: 0.5s;
+}
+
+#chimney-smoke3 {
+	top: -105px;
+	animation-delay: 1s;
+}
+
+#chimney-smoke4 {
+	top: -155px;
+	animation-delay: 1.5s;
+}
+
+#chimney-smoke5 {
+	top: -205px;
+	animation-delay: 2.5s;
+}
+
+#chimney-smoke6 {
+	top: -255px;
+	animation-delay: 3s;
+}
+
+@keyframes shipping {
+	0% {
+		transform: translateX(-100%)
+	}
+	100% {
+		transform: translateX(280%)
+	}
+}
+
+@keyframes shippingUpAndDown {
+	0% {
+		transform: translateY(-45%) rotate(-2deg)
+	}
+	100% {
+		transform: translateY(-60%) rotate(2deg)
+	}
+}
+
 .ocean {
 	height: 30%;
 	width: 100%;
@@ -25,7 +148,6 @@ section {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	overflow-x: hidden;
 }
 
 .wave {
@@ -36,18 +158,27 @@ section {
 	animation: wave 10s -11s linear alternate infinite;
 	transform: translate3d(0, 0, 0);
 	opacity: 0.8;
+	z-index: 2;
 }
 
 .wave:nth-of-type(2) {
 	bottom: 0%;
 	animation: wave 17s linear alternate infinite;
 	opacity: 0.5;
+	z-index: 2;
 }
 
 .wave:nth-of-type(3) {
 	bottom: 0%;
 	animation: wave 20s -17s ease-in alternate infinite;
 	opacity: 0.5;
+}
+
+.wave:nth-of-type(4) {
+	bottom: 0%;
+	animation: wave 30s -23s ease-in alternate infinite;
+	opacity: 0.8;
+	
 }
 
 @keyframes wave {
