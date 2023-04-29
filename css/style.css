@@ -935,7 +935,8 @@ form#passagerForm input,
 form#passagerForm select,
 form#passagerForm .input-wrapper.radio label,
 #boardingPass-wrapper .boradingPass-left-header p,
-#boardingPass-wrapper .boradingPass-right-header p {
+#boardingPass-wrapper .boradingPass-right-header p,
+.boradingPass-right-content span {
 	font-size: 22px;
 	border: none;
 	font-weight: 600;
@@ -956,4 +957,15 @@ form#passagerForm .input-wrapper.radio label,
 	cursor: pointer;
 	font-size: 24px;
 	margin: unset;
+}
+
+.boradingPass-right-content > div {
+	display: flex;
+	align-items: flex-end;
+	margin-bottom: 10px;
+}
+
+.boradingPass-right-content > div span {
+	margin-left: 10px;
+	font-family: "MS Shell Dlg 2";
 }

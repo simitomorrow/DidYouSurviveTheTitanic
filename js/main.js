@@ -3,10 +3,60 @@ window.onload = function () {
         e.preventDefault();
         handleFormData();
     });
+
     document.querySelector("#submitButton").addEventListener("click", () => {
         handleFormData();
     });
+
+    const formInputs = document.querySelectorAll("form#passagerForm input[type=text], form#passagerForm input[type=number]");
+    for (let i = 0; i < formInputs.length; i++) {
+        updateBoardingPass(formInputs[i].id, formInputs[i].value);
+        formInputs[i].addEventListener("change", function () {
+            updateBoardingPass(formInputs[i].id, formInputs[i].value);
+        });
+        formInputs[i].addEventListener("focusout", function () {
+            updateBoardingPass(formInputs[i].id, formInputs[i].value);
+        });
+    }
+
+    const formSelects = document.querySelectorAll("form#passagerForm select");
+    for (let i = 0; i < formSelects.length; i++) {
+        updateBoardingPass(formSelects[i].id, formSelects[i].options[formSelects[i].selectedIndex].text);
+        formSelects[i].addEventListener("change", function () {
+            updateBoardingPass(formSelects[i].id, formSelects[i].options[formSelects[i].selectedIndex].text);
+        });
+        formSelects[i].addEventListener("focusout", function () {
+            updateBoardingPass(formSelects[i].id, formSelects[i].options[formSelects[i].selectedIndex].text);
+        });
+    }
+
+    const formRadios = document.querySelectorAll("form#passagerForm .input-wrapper.radio");
+    for (let i = 0; i < formRadios.length; i++) {
+        formRadios[i].querySelectorAll("input[type=radio]").forEach(function (item) {
+            if(item.checked){
+                updateBoardingPass(item.name, document.querySelector("label[for="+item.id+"]").innerHTML);
+            }
+        });
+        formRadios[i].addEventListener("change", function () {
+            formRadios[i].querySelectorAll("input[type=radio]").forEach(function (item) {
+                if(item.checked){
+                    updateBoardingPass(item.name, document.querySelector("label[for="+item.id+"]").innerHTML);
+                }
+            });
+        });
+        formRadios[i].addEventListener("focusout", function () {
+            formRadios[i].querySelectorAll("input[type=radio]").forEach(function (item) {
+                if(item.checked){
+                    updateBoardingPass(item.name, document.querySelector("label[for="+item.id+"]").innerHTML);
+                }
+            });
+        });
+    }
 };
+
+function updateBoardingPass(selector, value){
+    document.querySelector(".boradingPass-right-content ." + selector + "_value span").innerHTML = value;
+}
 
 function handleFormData() {
     let nameValue = document.getElementById("name").value;
