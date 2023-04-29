@@ -19,12 +19,33 @@ section {
 
 /* Ocean */
 #titanicWrapper {
-	animation: shipping 50s ease-in infinite;
-	transform: translate(-100%, -45%);
+	/* animation: shipping 50s ease-in infinite; */
+	transform: translate(-10%, 2%);
 	display: inline-block;
 	z-index: 2;
+	position: absolute;
+	left: 0;
+	top: 0;
 	position: relative;
 }
+
+#titanicPartLeft {
+	display: inline-block;
+	z-index: 1;
+	position: relative;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+#titanicPartRight {
+	display: inline-block;
+	z-index: 1;
+	position: relative;
+	position: absolute;
+	right: 0;
+	top: 0;
+} 
 
 #titanicWrapperRotation {
 	display: inline-block;
@@ -34,6 +55,42 @@ section {
 #titanic {
 	z-index: 1;
 	position: relative;
+}
+
+@keyframes shipping {
+	0% {
+		transform: translateX(-10%)
+	}
+	100% {
+		transform: translateX(60%)
+	}
+}
+
+@keyframes shippingUpAndDown {
+	0% {
+		transform: translateY(-45%) rotate(-1deg)
+	}
+	100% {
+		transform: translateY(-50%) rotate(1deg)
+	}
+}
+
+@keyframes sinkLeftPart {
+	20% {
+		transform: translateY(75%) rotate(20deg);
+	}
+	100% {
+		transform: translateY(220%) rotate(20deg);
+	}
+}
+
+@keyframes sinkRightPart {
+	30% {
+		transform: translateY(75%) rotate(-20deg);
+	}
+	100% {
+		transform: translateY(220%) rotate(-20deg);
+	}
 }
 
 @keyframes smoke {
@@ -68,22 +125,27 @@ section {
 }
 
 #chimney-smoke-box1 {
-	left: 125px;
+	left: 270px;
 }
 
 #chimney-smoke-box2 {
-	left: 300px;
+	left: 390px;
 }
 
 #chimney-smoke-box3 {
-	left: 475px;
+	left: 510px;
+}
+
+#chimney-smoke-box4 {
+	left: 630px;
 }
 
 .chimney-smoke-box {
 	height: 50px;
-	top: 0;
+	top: 70px;
 	position: absolute;
 	width: 30px;
+	visibility: hidden;
 }
 
 .chimney-smoke {
@@ -123,21 +185,57 @@ section {
 	animation-delay: 3s;
 }
 
-@keyframes shipping {
+#iceberg {
+	position: absolute;
+	right: -20%;
+	top: -105%;
+	width: 400px;
+	transform: translateX(0%);
+}
+
+@keyframes icebergMovement {
 	0% {
-		transform: translateX(-100%)
+		transform: translateX(0%)
 	}
 	100% {
-		transform: translateX(280%)
+		transform: translateX(-140%)
 	}
 }
 
-@keyframes shippingUpAndDown {
+.lifeboat {
+	position: absolute;
+	width: 40px;
+	left: 50%;
+	bottom: 10%;
+	transform: translateX(0%);
+}
+
+#lifeboat1{
+	left: 40%;
+	bottom: 12%;
+}
+
+#lifeboat2{
+	left: 50%;
+	bottom: 5%;
+}
+
+#lifeboat3{
+	left: 32%;
+	bottom: 10%;
+}
+
+#lifeboat4{
+	left: 46%;
+	bottom: 16%;
+}
+
+@keyframes moveLifeBoat {
 	0% {
-		transform: translateY(-45%) rotate(-2deg)
+		transform: translateX(0%);
 	}
 	100% {
-		transform: translateY(-60%) rotate(2deg)
+		transform: translateX(3000%);
 	}
 }
 
@@ -151,33 +249,37 @@ section {
 }
 
 .wave {
-	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23003F7C'/%3E%3C/svg%3E");
+	background: url("../img/wave.svg");
+	background-size: cover;
 	position: absolute;
 	width: 200%;
 	height: 100%;
 	animation: wave 10s -11s linear alternate infinite;
 	transform: translate3d(0, 0, 0);
 	opacity: 0.8;
-	z-index: 2;
+	z-index: 1;
+	bottom: -20%;
 }
 
 .wave:nth-of-type(2) {
-	bottom: 0%;
+	bottom: -50%;
 	animation: wave 17s linear alternate infinite;
 	opacity: 0.5;
-	z-index: 2;
+	z-index: 5;
 }
 
 .wave:nth-of-type(3) {
-	bottom: 0%;
+	bottom: -30%;
 	animation: wave 20s -17s ease-in alternate infinite;
 	opacity: 0.5;
+	z-index: 5;
 }
 
 .wave:nth-of-type(4) {
-	bottom: 0%;
+	bottom: -40%;
 	animation: wave 30s -23s ease-in alternate infinite;
 	opacity: 0.8;
+	z-index: 1;
 	
 }
 
@@ -968,4 +1070,17 @@ form#passagerForm .input-wrapper.radio label,
 .boradingPass-right-content > div span {
 	margin-left: 10px;
 	font-family: "MS Shell Dlg 2";
+}
+
+#survivedText {
+	position: absolute;
+	font-size: 220px;
+	font-weight: bold;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	white-space: nowrap;
+	opacity: 0;
+	pointer-events: none;
 }
