@@ -36,8 +36,7 @@ function handleFormData() {
 
     let priceValue = document.getElementById("price").value;
     
-    var cabinSector = document.getElementById("cabinSector");
-    var cabinSectorValue = cabinSector.options[cabinSector.selectedIndex].text;
+    var cabinSector = document.getElementById("cabinSector").value;
 
     let sib_sp = document.getElementById("sib_sp").value;
 
@@ -62,7 +61,7 @@ function handleFormData() {
         "gender": gender,
         "tclass": tclass,
         "price": priceValue,
-        "cabinSector": cabinSectorValue,
+        "cabinSector": cabinSector,
         "sib_sp": sib_sp,
         "child_par": child_par,
         "port": port,
