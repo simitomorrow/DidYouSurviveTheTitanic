@@ -63,10 +63,10 @@ function handleFormData() {
 
     let age = document.getElementById("age").value;
 
-    let gender_menValue = document.getElementById("gender_men").checked;
-    let gender_womenValue = document.getElementById("gender_women").checked;
+    let gender_manValue = document.getElementById("gender_man").checked;
+    let gender_womanValue = document.getElementById("gender_woman").checked;
     let gender;
-    if (gender_menValue && !gender_womenValue) {
+    if (gender_manValue && !gender_womanValue) {
         gender = "male";
     } else {
         gender = "female";
