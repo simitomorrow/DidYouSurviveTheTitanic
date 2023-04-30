@@ -78,7 +78,7 @@ export function didThePassengerSurvive(passenger) {
     const result = bayes.predict([normalizedPassengerData])
     return Boolean(result.dataSync()[0]);
 }
-
+console.log(didThePassengerSurvive(examplePassengerData));
 
 function testPerformanceOfAI() {
     const splitIndex = Math.floor(twoDimensionalData.length * 0.8);

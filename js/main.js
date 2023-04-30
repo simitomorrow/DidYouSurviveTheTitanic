@@ -7,6 +7,7 @@ window.onload = function () {
         handleAIResult();
     });
 
+    document.querySelector(".cabin_value span").innerHTML = getCabinSector();
     const cabinInputs = document.querySelectorAll("input[name=cabinSector]");
     for (let i = 0; i < cabinInputs.length; i++) {
         cabinInputs[i].addEventListener("change", function () {
@@ -14,10 +15,12 @@ window.onload = function () {
         });
     }
 
+    document.querySelector(".name_value span").innerHTML = document.querySelector("#name").value;
     document.querySelector("#name").addEventListener("change", function () {
         document.querySelector(".name_value span").innerHTML = document.querySelector("#name").value;
     });
 
+    document.querySelector(".price_value span").innerHTML = document.querySelector("#price").value + "£";
     document.querySelector("#price").addEventListener("change", function () {
         document.querySelector(".price_value span").innerHTML = document.querySelector("#price").value + "£";
     });
@@ -85,7 +88,7 @@ function handleFormData() {
     };
 
     survived = didThePassengerSurvive(passenger);
-    console.log(passenger);
+    /* console.log(passenger); */
 }
 
 function getCabinSector(){
@@ -116,6 +119,10 @@ function getCabinSector(){
 function handleAIResult(){
     fadeOutFormAndSubmitButton();
     playTitanicAnimation();
+    if (!survived) {
+        console.log("sharks");
+        playSharkAnimations();
+    }
     setTimeout(() => {
         if(survived){
             console.log("survived");
@@ -157,7 +164,6 @@ function survivedAnimation(){
 }
 
 function notSurvivedAnimation(){
-    playSharkAnimations();
     let text = document.querySelector("#notSurvivedText");
     setTimeout(() => {
         text.style.pointerEvents = "auto";
@@ -174,7 +180,7 @@ function playSharkAnimations(){
     document.querySelectorAll(".shark").forEach((ele)=>{
         ele.style.opacity = "1";
         ele.style.pointerEvents = "auto";
-        ele.style.animation = "moveShark "+ 25 * (Math.random() * 2 + 1) +"s ease-in "+(Math.random() * 20 + 3)+"s forwards";
+        ele.style.animation = "moveShark "+ 25 * (Math.random() * 1.5 + 1) +"s ease-in "+(Math.random() * 15 + 3)+"s forwards";
     });
 }
 

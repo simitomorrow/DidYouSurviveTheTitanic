@@ -858,13 +858,26 @@ body p {
 
 #boardingPass-wrapper .boardingPass-right {
 	width: 30%;
+	position: relative;
 }
+
+#text {
+	font-size: 26px;
+}
+
+#text span {
+	font-family: "Typewriter-Bold";
+	text-transform: uppercase;
+	font-size: 35px;
+}
+
 
 #boardingPass-wrapper .boardingPass-left > div {
 	display: flex;
 	flex-direction: row;
 	overflow: hidden;
 	padding-right: 30px;
+	margin-bottom: 5px;
 }
 
 #boardingPass-wrapper .boardingPass-left > div > div {
@@ -951,8 +964,34 @@ label[for=price] + div span {
 	letter-spacing: 4px;
 	font-family: "MrsSaintDelafield-Regular";
 	-moz-appearance: textfield;
-	border-bottom: 1px dotted black;
 	width: 100%;
+	padding: 5px 15px 0;
+}
+
+#boardingPass-wrapper .i-wrapper{
+	position: relative;
+	width: 100%;
+	padding-right: 45px;
+}
+
+#boardingPass-wrapper input[type=text]+.underline,
+#boardingPass-wrapper input[type=number]+.underline {
+	border-bottom: 1px dotted black;
+	position: absolute;
+	left: 15px;
+	width: calc(100% - 15px);
+	bottom: 18px;
+}
+
+.i-wrapper.age,
+.i-wrapper.sib_sp,
+.i-wrapper.child_par {
+	width: 70px !important;
+}
+
+label[for=sib_sp],
+label[for=child_par]{
+	width: 310px;
 }
 
 input[type=number]::-webkit-outer-spin-button,
@@ -1009,21 +1048,26 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 #submitButton {
-	background-color: white;
+	background-color: unset;
 	padding: 10px 40px;
 	outline: 0;
 	border: none;
 	cursor: pointer;
-	font-size: 35px;
+	font-size: 50px;
+	color: rgb(122, 0, 0);
 	margin: unset;
-	font-family: "Typewriter-Thin";
+	font-family: "Typewriter-Bold";
 	transition: 300ms;
+	bottom: 0;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 #submitButton:hover,
 #submitButton:active,
 #submitButton:focus {
-	background-color: rgb(241, 241, 241);
+	background-color: rgba(241, 241, 241, 0.5);
 }
 
 #titanicBG {
@@ -1048,6 +1092,7 @@ input[type=number]::-webkit-inner-spin-button {
 	opacity: 0;
 	pointer-events: none;
 	font-family: helvetica;
+	z-index: 9;
 }
 
 #notSurvivedText {
@@ -1062,6 +1107,7 @@ input[type=number]::-webkit-inner-spin-button {
 	white-space: nowrap;
 	opacity: 0;
 	pointer-events: none;
+	z-index: 9;
 }
 
 #title {
