@@ -208,6 +208,7 @@ section {
 	left: 50%;
 	bottom: 10%;
 	transform: translateX(0%);
+	visibility: hidden;
 }
 
 #lifeboat1{
@@ -236,6 +237,57 @@ section {
 	}
 	100% {
 		transform: translateX(3000%);
+	}
+}
+
+.shark {
+	position: absolute;
+	transform: translateX(0%);
+	opacity: 0;
+	pointer-events: none;
+}
+
+#shark1{
+	left: 100%;
+	bottom: 52%;
+	width: 35px;
+	z-index: 6;
+}
+
+#shark2{
+	left: 100%;
+	bottom: 45%;
+	width: 45px;
+	z-index: 8;
+}
+
+#shark3{
+	left: 100%;
+	bottom: 50%;
+	width: 40px;
+	z-index: 7;
+}
+
+#shark4{
+	left: 100%;
+	bottom: 56%;
+	width: 35px;
+	z-index: 5;
+}
+
+#shark5{
+	left: 100%;
+	bottom: 30%;
+	width: 50px;
+	z-index: 9;
+}
+
+@keyframes moveShark {
+	0% {
+		left: 100%;
+	}
+	100% {
+		left: -100%;
 	}
 }
 
@@ -1073,6 +1125,19 @@ form#passagerForm .input-wrapper.radio label,
 }
 
 #survivedText {
+	position: absolute;
+	font-size: 220px;
+	font-weight: bold;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	white-space: nowrap;
+	opacity: 0;
+	pointer-events: none;
+}
+
+#notSurvivedText {
 	position: absolute;
 	font-size: 220px;
 	font-weight: bold;

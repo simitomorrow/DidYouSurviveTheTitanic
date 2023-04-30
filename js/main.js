@@ -122,17 +122,23 @@ function handleFormData() {
     console.log(passenger);
 }
 
+let survived = false;
+
 function handleAIResult(){
     fadeOutFormAndSubmitButton();
-    let randomNumber = Math.floor(Math.random() * 1);
     playTitanicAnimation();
     setTimeout(() => {
-        if(randomNumber === 0){
+        if(survived){
+            console.log("survived");
             survivedAnimation();
         }else{
+            console.log("not survived");
             notSurvivedAnimation();
         }
     }, 10000);
+    /* setTimeout(() => {
+        location.reload(); 
+    }, 60000); */
 }
 
 function playTitanicAnimation(){
@@ -162,12 +168,31 @@ function survivedAnimation(){
 }
 
 function notSurvivedAnimation(){
+    playSharkAnimations();
+    let text = document.querySelector("#notSurvivedText");
+    setTimeout(() => {
+        text.style.pointerEvents = "auto";
+        text.animate(
+            { opacity: ["0", "1"] },
+            { duration: 1000, iterations: 1, easing: "ease-out" }
+        ).onfinish = (e) => {
+            e.target.effect.target.style.opacity = "1";
+        };
+    }, 1000);    
+}
 
+function playSharkAnimations(){
+    document.querySelectorAll(".shark").forEach((ele)=>{
+        ele.style.opacity = "1";
+        ele.style.pointerEvents = "auto";
+        ele.style.animation = "moveShark "+ 25 * (Math.random() * 2 + 1) +"s ease-in "+(Math.random() * 20 + 3)+"s forwards";
+    });
 }
 
 function moveLifeBoat(){
     document.querySelectorAll(".lifeboat").forEach((ele)=>{
-        ele.style.animation = "moveLifeBoat 15s ease-in forwards";
+        ele.style.visibility = "visible";
+        ele.style.animation = "moveLifeBoat 25s ease-in forwards";
     });
 }
 
