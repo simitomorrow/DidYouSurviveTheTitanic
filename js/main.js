@@ -2,10 +2,12 @@ window.onload = function () {
     document.querySelector("form#passagerForm").addEventListener("submit", (e) => {
         e.preventDefault();
         handleFormData();
+        handleAIResult();
     });
 
     document.querySelector("#submitButton").addEventListener("click", () => {
         handleFormData();
+        handleAIResult();
     });
 
     const formInputs = document.querySelectorAll("form#passagerForm input[type=text], form#passagerForm input[type=number]");
@@ -63,10 +65,10 @@ function handleFormData() {
 
     let age = document.getElementById("age").value;
 
-    let gender_menValue = document.getElementById("gender_men").checked;
-    let gender_womenValue = document.getElementById("gender_women").checked;
+    let gender_manValue = document.getElementById("gender_man").checked;
+    let gender_womanValue = document.getElementById("gender_woman").checked;
     let gender;
-    if (gender_menValue && !gender_womenValue) {
+    if (gender_manValue && !gender_womanValue) {
         gender = "male";
     } else {
         gender = "female";
@@ -118,4 +120,111 @@ function handleFormData() {
     };
 
     console.log(passenger);
+}
+
+let survived = false;
+
+function handleAIResult(){
+    fadeOutFormAndSubmitButton();
+    playTitanicAnimation();
+    setTimeout(() => {
+        if(survived){
+            console.log("survived");
+            survivedAnimation();
+        }else{
+            console.log("not survived");
+            notSurvivedAnimation();
+        }
+    }, 10000);
+    /* setTimeout(() => {
+        location.reload(); 
+    }, 60000); */
+}
+
+function playTitanicAnimation(){
+    document.querySelector("#titanicWrapper").style.animation = "shipping 10s ease-in forwards";
+    showSmoke();
+    setTimeout(() => {
+        document.querySelector("#iceberg").style.animation = "icebergMovement 9s ease-in forwards";
+        setTimeout(() => {
+            hideSmoke();
+            breakTitanic();
+        }, 9000);
+    }, 1000);
+}
+
+function survivedAnimation(){
+    moveLifeBoat();
+    let text = document.querySelector("#survivedText");
+    setTimeout(() => {
+        text.style.pointerEvents = "auto";
+        text.animate(
+            { opacity: ["0", "1"] },
+            { duration: 1000, iterations: 1, easing: "ease-out" }
+        ).onfinish = (e) => {
+            e.target.effect.target.style.opacity = "1";
+        };
+    }, 1000);    
+}
+
+function notSurvivedAnimation(){
+    playSharkAnimations();
+    let text = document.querySelector("#notSurvivedText");
+    setTimeout(() => {
+        text.style.pointerEvents = "auto";
+        text.animate(
+            { opacity: ["0", "1"] },
+            { duration: 1000, iterations: 1, easing: "ease-out" }
+        ).onfinish = (e) => {
+            e.target.effect.target.style.opacity = "1";
+        };
+    }, 1000);    
+}
+
+function playSharkAnimations(){
+    document.querySelectorAll(".shark").forEach((ele)=>{
+        ele.style.opacity = "1";
+        ele.style.pointerEvents = "auto";
+        ele.style.animation = "moveShark "+ 25 * (Math.random() * 2 + 1) +"s ease-in "+(Math.random() * 20 + 3)+"s forwards";
+    });
+}
+
+function moveLifeBoat(){
+    document.querySelectorAll(".lifeboat").forEach((ele)=>{
+        ele.style.visibility = "visible";
+        ele.style.animation = "moveLifeBoat 25s ease-in forwards";
+    });
+}
+
+function showSmoke(){
+    document.querySelector(".chimney-smoke").style.animation = "smoke 3.5s infinite ease-out";
+    document.querySelectorAll(".chimney-smoke-box ").forEach((ele)=>{
+        ele.style.visibility = "visible";
+    });
+}
+
+function hideSmoke(){
+    document.querySelectorAll(".chimney-smoke-box ").forEach((ele)=>{
+        ele.style.visibility = "hidden";
+    });
+    document.querySelector(".chimney-smoke").style.animation = "none";
+}
+
+function breakTitanic(){
+    document.querySelector("#titanic").style.visibility = "hidden";
+    document.querySelector("#titanicPartLeft").style.animation = "sinkLeftPart 8s ease-in forwards";
+    document.querySelector("#titanicPartRight").style.animation = "sinkRightPart 8s ease-in forwards";
+}
+
+function fadeOutFormAndSubmitButton(){
+    let elems = [document.querySelector("#submitButton"), document.querySelector("#boardingPass-wrapper")];
+    elems.forEach((ele)=>{
+        ele.animate(
+            { opacity: ["1", "0"] },
+            { duration: 1000, iterations: 1, easing: "ease-out" }
+        ).onfinish = (e) => {
+            e.target.effect.target.style.opacity = "0";
+            e.target.effect.target.style.display = "none";
+        };
+    });
 }
