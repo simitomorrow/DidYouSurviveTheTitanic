@@ -30,7 +30,7 @@ const examplePassengerData = {
     Sex: "male", //male, female
     SibSp: 1,
 }
-function didThePassengerSurvive(passenger) {
+export function didThePassengerSurvive(passenger) {
     passenger.Age = (passenger.Age == undefined) ? 28 : passenger.Age; //28 is the Median
     passenger.Cabin = (passenger.Cabin == undefined) ? "N" : passenger.Cabin.charAt(0);
     passenger.Embarked = (passenger.Embarked == undefined) ? "S" : passenger.Embarked;
@@ -78,7 +78,6 @@ function didThePassengerSurvive(passenger) {
     const result = bayes.predict([normalizedPassengerData])
     return Boolean(result.dataSync()[0]);
 }
-console.log(didThePassengerSurvive(examplePassengerData))
 
 
 function testPerformanceOfAI() {

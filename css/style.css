@@ -6,7 +6,7 @@ html {
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
-	font-family: "SourceSansPro";
+	font-family: "Typewriter";
 }
 
 main,
@@ -17,9 +17,12 @@ section {
 	position: relative;
 }
 
+body p {
+	margin: unset;
+}
+
 /* Ocean */
 #titanicWrapper {
-	/* animation: shipping 50s ease-in infinite; */
 	transform: translate(-10%, 2%);
 	display: inline-block;
 	z-index: 2;
@@ -353,18 +356,6 @@ section {
 	margin: 0 auto;
 }
 
-/*main divs*/
-.infoPane {
-	width: 1200px;
-	height: 3000px;
-	margin: 0 auto;
-	position: relative;
-	background: white;
-	box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, .3);
-	overflow: hidden;
-	z-index: -5;
-}
-
 .cloudPane {
 	width: 100%;
 	height: 100%;
@@ -598,13 +589,11 @@ section {
 	top: 0px;
 }
 
-/*style the clouds*/
 .bigCloud {
 	box-shadow: 10px 10px 5px 20px black inset;
 	position: absolute;
 }
 
-/*style circles that make up clouds*/
 .smallCircle {
 	height: 100px;
 	width: 100px;
@@ -629,142 +618,6 @@ section {
 	position: absolute;
 }
 
-/*Circle shadows*/
-
-/*#circShadow1 {
-	  background: grey;
-	  border-radius: 30px 20px 500px 20px;
-	  
-	  -webkit-transform: rotate(45deg);
-	  z-index:2;
-  }*/
-
-/*stars*/
-.star {
-	height: 3px;
-	width: 3px;
-	background: white;
-	position: absolute;
-	z-index: 0;
-}
-
-#star1 {
-	top: 20px;
-	left: 20%;
-}
-
-#star1+.star {
-	top: 20px;
-	left: 70%;
-}
-
-#star2 {
-	top: 80px;
-	left: 4%;
-}
-
-#star2+.star {
-	top: 80px;
-	left: 75%;
-}
-
-#star3 {
-	top: 150px;
-	left: 3%;
-}
-
-#star3+.star {
-	top: 150px;
-	left: 90%;
-}
-
-#star4 {
-	top: 100px;
-	left: 7%;
-}
-
-#star4+.star {
-	top: 100px;
-	left: 78%;
-}
-
-#star5 {
-	top: 130px;
-	left: 13%;
-}
-
-#star5+.star {
-	top: 130px;
-	left: 60%;
-}
-
-#star6 {
-	height: 5px;
-	width: 5px;
-	top: 50px;
-	left: 18%;
-}
-
-#star6+.star {
-	height: 5px;
-	width: 5px;
-	top: 50px;
-	left: 92%;
-}
-
-#star7 {
-	top: 35px;
-	left: 27%;
-}
-
-#star7+.star {
-	top: 35px;
-	left: 79%;
-}
-
-#star8 {
-	top: 35px;
-	left: 900px;
-}
-
-#star8+.star {
-	top: 35px;
-	left: 88%;
-}
-
-#star9 {
-	height: 4px;
-	width: 4px;
-	top: 50px;
-	left: 45%;
-}
-
-#star9+.star {
-	height: 4px;
-	width: 4px;
-	top: 50px;
-	left: 97%;
-}
-
-#star10 {
-	top: 100px;
-	left: 44%;
-}
-
-#star10+.star {
-	top: 100px;
-	left: 83%;
-}
-
-#star11 {
-	top: 75px;
-	left: 37%;
-}
-
-#star11+.star {
-	top: 75px;
-	left: 66%;
-}
 
 @-webkit-keyframes drift {
 	from {
@@ -949,179 +802,238 @@ section {
 	}
 }
 
-#boardingPass-wrapper {
+#boardingPass {
 	position: absolute;
-	z-index: 5;
+	z-index: 15;
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	width: 1200px;
-	height: 500px;
-	display: flex;
-	flex-direction: row;
+	width: 1060px;
+	height: 630px;
+	background: url("../img/bg.png");
+	background-size: cover;
+	font-size: 22px;
 }
 
-#boardingPass-wrapper .boardingPass-part {
-	/*background-color: rgba(255, 255, 255, 0.8);*/
-	background: linear-gradient(180deg, rgba(0, 0, 0, 0.9) 18%, rgba(255, 255, 255, 0.9) 18%);
-	border-radius: 40px;
-	padding: 40px;
+#boardingPass-wrapper {
+	overflow: hidden;
+	padding: 15px 30px;
+	display: flex;
+	flex-direction: row;
+	width: calc(100% - 2 * 30px);
+	height: calc(100% - 2 * 15px);
+	position: relative;
+}
+
+#boardingPass-wrapper  h2 {
+	margin: unset;
+	font-size: 45px;
+	font-family: "Typewriter-Bold";
+}
+
+#boardingPass-wrapper .boarginPass-header img {
+	object-fit: contain;
+	width: 80px;
+	margin-right: 15px;
+}
+
+#boardingPass-wrapper .boardingPass-right h2 {
+	margin-left: 15px;
+}
+
+#boardingPass-wrapper .boarginPass-header {
+	display: flex;
+	align-items: center;
+	padding-bottom: 5px;
+	padding-top: unset !important;
+	border-bottom: 3px solid black;
+	margin-bottom: 10px;
 }
 
 #boardingPass-wrapper .boardingPass-left {
 	width: 70%;
-	height: calc(100% - 80px);
-	border-top-right-radius: 30px;
-	border-bottom-right-radius: 30px;
-	padding-right: unset;
+	border-right: 2px dotted black;
 }
+
 
 #boardingPass-wrapper .boardingPass-right {
 	width: 30%;
-	height: calc(100% - 80px);
-	border-top-left-radius: 30px;
-	border-bottom-left-radius: 30px;
-	padding-left: unset;
 }
 
-
-#boardingPass-wrapper .boardingPass-right .boardingPass-part-wrapper {
-	height: 100%;
-	width: calc(100% + 2px);
-	border-left: 4px dotted black;
-	margin-left: -2px;
-}
-
-#boardingPass-wrapper .boardingPass-left .boardingPass-part-wrapper {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-}
-
-#boardingPass-wrapper .boradingPass-left-content {
+#boardingPass-wrapper .boardingPass-left > div {
 	display: flex;
 	flex-direction: row;
-	height: 85%;
-	position: relative;
+	overflow: hidden;
+	padding-right: 30px;
 }
 
-#boardingPass-wrapper .boradingPass-right-content{
-	display: flex;
-	flex-direction: column;
-	height: 85%;
-	position: relative;
-	padding-left: 40px;
-}
-
-#boardingPass-wrapper .boradingPass-left-header,
-#boardingPass-wrapper .boradingPass-right-header {
+#boardingPass-wrapper .boardingPass-left > div > div {
 	display: flex;
 	flex-direction: row;
-	height: calc(15% - 15px);
-	padding-bottom: 15px;
+	width: 100%;
 	align-items: center;
+	min-height: 60px;
 }
 
-#boardingPass-wrapper .boradingPass-left-header img {
-	height: 100%;
-	object-fit: contain;
-	margin-top: -30px;
+#boardingPass-wrapper .sectionEnd {
+	margin-bottom: 15px;
+	border-bottom: 2px dotted black;
+	padding-bottom: 15px;
 }
 
-div#boardingPass-wrapper .boradingPass-left-header p,
-div#boardingPass-wrapper .boradingPass-right-header p {
-	margin: unset;
-	font-size: 30px;
-	color:white;
-	margin-left: 30px;
-	text-transform: uppercase;
-	margin-top: -30px;
+label[for=sib_sp],
+label[for=child_par],
+label[for=price]{
+	width: 100%;
 }
 
-div#boardingPass-wrapper .boradingPass-right-header p {
-	margin-left: unset;
-	padding-left: 40px;
+#boardingPass-wrapper .boardingPass-left > div:last-of-type > div {
+	border-bottom: none;
 }
 
-#boardingPass-wrapper .boardingPass-left .boradingPass-left-content img {
+#boardingPass-wrapper .boardingPass-left > div > div.special {
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+#boardingPass-wrapper .boardingPass-left > div > div.half {
+	width: 50%;
+}
+
+#price {
+	width: 180px;
+	text-align: right;
+	font-family: "Typewriter" !important;
+	border: none !important;
+	margin-left: unset !important;
+}
+
+label[for=price] + div {
+	display: flex;
+	position: relative;
+}
+
+label[for=price] + div:after{
+	content: "";
+	border-bottom: 1px solid black;
+	width: 100%;
+	height: 1px;
 	position: absolute;
-	top: 3%;
-	left: 85%;
-	width: 10%;
-	height: 94%;
-	object-fit: cover;
+	right: 0;
+	bottom: 0px;
 }
 
-form#passagerForm {
-	display: flex;
-	flex-direction: column;
-	width: calc(90% - 40px);
+label[for=price] + div:before{
+	content: "";
+	border-bottom: 1px solid black;
+	width: 100%;
+	height: 1px;
+	position: absolute;
+	right: 0;
+	bottom: -5px;
 }
 
-form#passagerForm .form-row{
-	display: flex;
-	flex-direction: row;
-	gap: 15px;
-	height: calc(100% / 3);
+label[for=price] + div span {
+	font-size: 35px;
+	font-weight: bold;
+	margin-right: -5px;
 }
 
-form#passagerForm .input-wrapper {
-	display: flex;
-	flex-direction: column;
-	width: calc(100% / 3);
-}
-
-form#passagerForm .input-wrapper:not(.radio) label,
-form#passagerForm .input-wrapper > p:first-of-type,
-#boardingPass-wrapper .boradingPass-right-content div > p {
-	font-family: "Oswald";
-	text-transform: uppercase;
-	font-size: 16px;
-	margin: unset;
-}
-
-form#passagerForm input:not([type=radio]),
-form#passagerForm select {
-	width: 70%;
-}
-
-form#passagerForm input,
-form#passagerForm select,
-form#passagerForm .input-wrapper.radio label,
-#boardingPass-wrapper .boradingPass-left-header p,
-#boardingPass-wrapper .boradingPass-right-header p,
-.boradingPass-right-content span {
-	font-size: 22px;
+#boardingPass-wrapper input[type=text],
+#boardingPass-wrapper input[type=number] {
+	background-color: rgba(255,255,255,0.5);
+	box-shadow: none;
+	outline: 0;
 	border: none;
-	font-weight: 600;
-	background: transparent;
+	margin-left: 15px;
+	font-size: 35px;
+	letter-spacing: 4px;
+	font-family: "MrsSaintDelafield-Regular";
+	-moz-appearance: textfield;
+	border-bottom: 1px dotted black;
+	width: 100%;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+#boardingPass-wrapper input[type=radio] {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+#boardingPass-wrapper .radio > div {
+	display: flex;
+	margin-left: 15px;
+}
+
+#boardingPass-wrapper .radio.special > div {
+	margin-left: unset;
+}
+
+#boardingPass-wrapper input[type=radio] + label {
+	display: flex;
+	cursor: pointer;
+	align-items: center;
+	gap: 5px;
+}
+
+#boardingPass-wrapper input[type=radio] + label span {
+	width: 30px;
+	height: 30px;
+	background-color: rgba(255,255,255,0.5);
+	display: block;
+	margin-left: 5px;
+	margin-right: 15px;
+	position: relative;
+}
+
+#boardingPass-wrapper input[type=radio]:checked + label span:after{
+	content: "x";
+	font-size: 40px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding-bottom: 7px;
+	padding-right: 0px;
+	text-align: center;
+	font-family: "Typewriter-Thin";
 }
 
 #submitButton {
-	position: absolute;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	bottom: 10%;
-	z-index: 10;
 	background-color: white;
-	padding: 10px 30px;
+	padding: 10px 40px;
 	outline: 0;
 	border: none;
-	border-radius: 10px;
 	cursor: pointer;
-	font-size: 24px;
+	font-size: 35px;
 	margin: unset;
+	font-family: "Typewriter-Thin";
+	transition: 300ms;
 }
 
-.boradingPass-right-content > div {
-	display: flex;
-	align-items: flex-end;
-	margin-bottom: 10px;
+#submitButton:hover,
+#submitButton:active,
+#submitButton:focus {
+	background-color: rgb(241, 241, 241);
 }
 
-.boradingPass-right-content > div span {
-	margin-left: 10px;
-	font-family: "MS Shell Dlg 2";
+#titanicBG {
+	position: absolute;
+	width: 120%;
+	opacity: 0.2;
+	z-index: -1;
+	top: 25%;
+	transform: rotate(-89deg);
+	right: -52%;
 }
 
 #survivedText {
@@ -1135,10 +1047,12 @@ form#passagerForm .input-wrapper.radio label,
 	white-space: nowrap;
 	opacity: 0;
 	pointer-events: none;
+	font-family: helvetica;
 }
 
 #notSurvivedText {
 	position: absolute;
+	font-family: helvetica;
 	font-size: 220px;
 	font-weight: bold;
 	top: 50%;
@@ -1148,4 +1062,191 @@ form#passagerForm .input-wrapper.radio label,
 	white-space: nowrap;
 	opacity: 0;
 	pointer-events: none;
+}
+
+#title {
+	font-family: helvetica;
+	position: absolute;
+	left: 50%;
+	top: 6%;
+	transform: translateX(-50%);
+	font-size: 60px;
+	margin: 0;
+	color: white;
+	z-index: 9;
+}
+
+#github {
+	font-family: helvetica;
+	font-size: 18px;
+	position: absolute;
+	color: white;
+	top: 15px;
+	right: 30px;
+	transition: 300ms;
+}
+
+#github:hover,
+#github:active,
+#github:focus {
+	opacity: 0.5;
+}
+
+#boardingPass-wrapper .boardingPass-right > div > * {
+	padding-left: 15px;
+}
+
+#boardingPass-wrapper .boardingPass-right > div > button {
+	margin-left: 15px;
+	padding-left: 30px;
+}
+
+#boardingPass-wrapper .boardingPass-right > div:not(.boarginPass-header) {
+	margin-bottom: 30px;
+}
+
+#boardingPass-wrapper .boardingPass-right > div {
+	display: flex;
+}
+
+#boardingPass-wrapper .boardingPass-right > div > .half {
+	width: 50%;
+}
+
+#portSelection {
+	position: absolute;
+	width: 120%;
+	top: 108%;
+	left: -10%;
+	z-index: 10;
+	display: flex;
+	justify-content: space-between;
+	color: white;
+}
+
+#portSelection .port.start img {
+	height: 60px;
+	object-fit: contain;
+	transform: translateY(-30%);
+}
+
+#portSelection .port.finish img {
+	height: 120px;
+	object-fit: contain;
+}
+
+#portSelection .port.finish div{
+	color: white;
+	transform: translate(150%, -50%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+}
+
+#portSelection .port.start div{
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#portSelection .port.start div p {
+	margin-top: -10px;
+}
+
+#portSelection .port {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#portSelection .port:not(.finish):not(.start) div{
+	width: 20px;
+	height: 20px;
+	background-color: white;
+	border-radius: 50%;
+	display: block;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+#portSelection .port:not(.finish):not(.start) div:after {
+	content: "";
+	position: absolute;
+	border-bottom: 2px dotted white;
+	height: 2px;
+	width: 120px;
+	left: calc(100% + 10px);
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#portSelection .port.start + .port div:before {
+	width: 175px !important;
+}
+
+#portSelection .port:nth-child(4) div:after {
+	width: 355px !important;
+}
+
+#portSelection .port:not(.finish):not(.start){
+	width: 150px;
+}
+
+#portSelection .port:not(.finish):not(.start) div:before {
+	content: "";
+	position: absolute;
+	border-bottom: 2px dotted white;
+	height: 2px;
+	width: 120px;
+	right: calc(100% + 10px);
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#portSelection .port input{
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+#portSelection .port input,
+#portSelection .port input + label {
+	cursor: pointer;
+}
+
+#portSelection .port input:checked + label + p {
+	text-decoration: underline;
+}
+
+#portSelection .port input:checked + label {
+	position: relative;
+}
+
+#portSelection .port input:checked + label:after {
+	content: "▼";
+	position: absolute;
+	top: -115%;
+	left: 50%;
+	color: white;
+	transform: translateX(-50%);
+	text-align: center;
+	font-size: 30px;
+}
+
+#grain {
+	position: absolute;
+	width: 100vw;
+	object-fit: cover;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 6;
+	mix-blend-mode: multiply;
+	opacity: 0.1;
 }

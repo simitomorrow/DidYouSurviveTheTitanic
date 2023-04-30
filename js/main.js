@@ -1,69 +1,34 @@
+import {didThePassengerSurvive } from "./train.js";
+
 window.onload = function () {
-    document.querySelector("form#passagerForm").addEventListener("submit", (e) => {
+    document.querySelector("form#boardingPass-wrapper").addEventListener("submit", (e) => {
         e.preventDefault();
         handleFormData();
         handleAIResult();
     });
 
-    document.querySelector("#submitButton").addEventListener("click", () => {
-        handleFormData();
-        handleAIResult();
+    const cabinInputs = document.querySelectorAll("input[name=cabinSector]");
+    for (let i = 0; i < cabinInputs.length; i++) {
+        cabinInputs[i].addEventListener("change", function () {
+            document.querySelector(".cabin_value span").innerHTML = getCabinSector();
+        });
+    }
+
+    document.querySelector("#name").addEventListener("change", function () {
+        document.querySelector(".name_value span").innerHTML = document.querySelector("#name").value;
     });
 
-    const formInputs = document.querySelectorAll("form#passagerForm input[type=text], form#passagerForm input[type=number]");
-    for (let i = 0; i < formInputs.length; i++) {
-        updateBoardingPass(formInputs[i].id, formInputs[i].value);
-        formInputs[i].addEventListener("change", function () {
-            updateBoardingPass(formInputs[i].id, formInputs[i].value);
-        });
-        formInputs[i].addEventListener("focusout", function () {
-            updateBoardingPass(formInputs[i].id, formInputs[i].value);
-        });
-    }
-
-    const formSelects = document.querySelectorAll("form#passagerForm select");
-    for (let i = 0; i < formSelects.length; i++) {
-        updateBoardingPass(formSelects[i].id, formSelects[i].options[formSelects[i].selectedIndex].text);
-        formSelects[i].addEventListener("change", function () {
-            updateBoardingPass(formSelects[i].id, formSelects[i].options[formSelects[i].selectedIndex].text);
-        });
-        formSelects[i].addEventListener("focusout", function () {
-            updateBoardingPass(formSelects[i].id, formSelects[i].options[formSelects[i].selectedIndex].text);
-        });
-    }
-
-    const formRadios = document.querySelectorAll("form#passagerForm .input-wrapper.radio");
-    for (let i = 0; i < formRadios.length; i++) {
-        formRadios[i].querySelectorAll("input[type=radio]").forEach(function (item) {
-            if(item.checked){
-                updateBoardingPass(item.name, document.querySelector("label[for="+item.id+"]").innerHTML);
-            }
-        });
-        formRadios[i].addEventListener("change", function () {
-            formRadios[i].querySelectorAll("input[type=radio]").forEach(function (item) {
-                if(item.checked){
-                    updateBoardingPass(item.name, document.querySelector("label[for="+item.id+"]").innerHTML);
-                }
-            });
-        });
-        formRadios[i].addEventListener("focusout", function () {
-            formRadios[i].querySelectorAll("input[type=radio]").forEach(function (item) {
-                if(item.checked){
-                    updateBoardingPass(item.name, document.querySelector("label[for="+item.id+"]").innerHTML);
-                }
-            });
-        });
-    }
+    document.querySelector("#price").addEventListener("change", function () {
+        document.querySelector(".price_value span").innerHTML = document.querySelector("#price").value + "£";
+    });
 };
 
-function updateBoardingPass(selector, value){
-    document.querySelector(".boradingPass-right-content ." + selector + "_value span").innerHTML = value;
-}
+let survived;
 
 function handleFormData() {
     let nameValue = document.getElementById("name").value;
 
-    let age = document.getElementById("age").value;
+    let age = parseInt(document.getElementById("age").value);
 
     let gender_manValue = document.getElementById("gender_man").checked;
     let gender_womanValue = document.getElementById("gender_woman").checked;
@@ -79,20 +44,20 @@ function handleFormData() {
     let tclass_3Value = document.getElementById("tclass_3");
     let tclass;
     if(tclass_1Value.checked && !tclass_2Value.checked && !tclass_3Value.checked){
-        tclass = tclass_1Value.value;
+        tclass = parseInt(tclass_1Value.value);
     }else if(!tclass_1Value.checked && tclass_2Value.checked && !tclass_3Value.checked){
-        tclass = tclass_2Value.value;
+        tclass = parseInt(tclass_2Value.value);
     }else{
-        tclass = tclass_3Value.value;
+        tclass = parseInt(tclass_3Value.value);
     }
 
-    let priceValue = document.getElementById("price").value;
-    
-    var cabinSector = document.getElementById("cabinSector").value;
+    let priceValue = parseFloat(document.getElementById("price").value);
 
-    let sib_sp = document.getElementById("sib_sp").value;
+    let cabinSector = getCabinSector();
 
-    let child_par = document.getElementById("child_par").value;
+    let sib_sp = parseInt(document.getElementById("sib_sp").value);
+
+    let child_par = parseInt(document.getElementById("child_par").value);
 
     let port_1Value = document.getElementById("port_cherbourg");
     let port_2Value = document.getElementById("port_queenstown");
@@ -108,21 +73,45 @@ function handleFormData() {
 
 
     let passenger = {
-        "name": nameValue,
-        "age": age,
-        "gender": gender,
-        "tclass": tclass,
-        "price": priceValue,
-        "cabinSector": cabinSector,
-        "sib_sp": sib_sp,
-        "child_par": child_par,
-        "port": port,
+        "Name": nameValue,
+        "Age": age,
+        "Sex": gender,
+        "Pclass": tclass,
+        "Fare": priceValue,
+        "Cabin": cabinSector,
+        "SibSp": sib_sp,
+        "Parch": child_par,
+        "Embarked": port,
     };
 
+    survived = didThePassengerSurvive(passenger);
     console.log(passenger);
 }
 
-let survived = false;
+function getCabinSector(){
+    let cabinSector;
+    let cabinSector_1 = document.getElementById("cabinSector_1");
+    let cabinSector_2 = document.getElementById("cabinSector_2");
+    let cabinSector_3 = document.getElementById("cabinSector_3");
+    let cabinSector_4 = document.getElementById("cabinSector_4");
+    let cabinSector_5 = document.getElementById("cabinSector_5");
+    let cabinSector_6 = document.getElementById("cabinSector_6");
+    
+    if(cabinSector_1.checked && !cabinSector_2.checked && !cabinSector_3.checked && !cabinSector_4.checked && !cabinSector_5.checked && !cabinSector_6.checked){
+        cabinSector = cabinSector_1.value;
+    }else if(!cabinSector_1.checked && cabinSector_2.checked && !cabinSector_3.checked && !cabinSector_4.checked && !cabinSector_5.checked && !cabinSector_6.checked){
+        cabinSector = cabinSector_2.value;
+    }else if(!cabinSector_1.checked && !cabinSector_2.checked && cabinSector_3.checked && !cabinSector_4.checked && !cabinSector_5.checked && !cabinSector_6.checked){
+        cabinSector = cabinSector_3.value;
+    }else if(!cabinSector_1.checked && !cabinSector_2.checked && !cabinSector_3.checked && cabinSector_4.checked && !cabinSector_5.checked && !cabinSector_6.checked){
+        cabinSector = cabinSector_4.value;
+    }else if(!cabinSector_1.checked && !cabinSector_2.checked && !cabinSector_3.checked && !cabinSector_4.checked && cabinSector_5.checked && !cabinSector_6.checked){
+        cabinSector = cabinSector_5.value;
+    }else{
+        cabinSector = cabinSector_6.value;
+    }
+    return cabinSector;
+}
 
 function handleAIResult(){
     fadeOutFormAndSubmitButton();
@@ -216,15 +205,12 @@ function breakTitanic(){
     document.querySelector("#titanicPartRight").style.animation = "sinkRightPart 8s ease-in forwards";
 }
 
-function fadeOutFormAndSubmitButton(){
-    let elems = [document.querySelector("#submitButton"), document.querySelector("#boardingPass-wrapper")];
-    elems.forEach((ele)=>{
-        ele.animate(
-            { opacity: ["1", "0"] },
-            { duration: 1000, iterations: 1, easing: "ease-out" }
-        ).onfinish = (e) => {
-            e.target.effect.target.style.opacity = "0";
-            e.target.effect.target.style.display = "none";
-        };
-    });
+function fadeOutFormAndSubmitButton() {
+    document.querySelector("#boardingPass").animate(
+        { left: ["50%", "-100%"] },
+        { duration: 5000, iterations: 1, easing: "ease-out" }
+    ).onfinish = (e) => {
+        e.target.effect.target.style.left = "-100%";
+        e.target.effect.target.style.display = "none";
+    };
 }
