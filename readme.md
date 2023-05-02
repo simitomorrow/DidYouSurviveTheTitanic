@@ -1,44 +1,43 @@
-based on the kaggle challenge about the titanic
-https://www.kaggle.com/competitions/titanic/overview
+[Part of a course at HSLU](https://github.com/digitalideation/compp_f2301) 
 
-used references for building an AI
-https://www.youtube.com/watch?v=I3FBJdiExcg
-https://www.kaggle.com/code/kenjee/titanic-project-example/notebook
+# Did you survive the Titanic? Ask an AI to find out!
 
-part of a course at hslu
-https://github.com/digitalideation/compp_f2301
+This Project was inspired by the beginner [kaggle](https://www.kaggle.com/competitions/titanic/overview) challenge about the Titanic.
 
-used library
-https://scikitjs.org/
+Goal of the challenge is to create an AI that is able to predict whether or not a person survived the disastrous events years ago, given a set of data about each passenger. 
 
-credits
-simitomorrow
-zytronik
+To me the prospect of an AI predicting the outcome of a person's survival sounded ridiculous, how is that possible? This question made for a fun idea to make a website out of, for people to play around with.
 
+- What kind of person do I need to be to survive?
+- Was the saying Women and Children first followed back then?
+- Does it matter where people boarded the ship?
 
+## Implementation
 
-inputs:
-survival 	Survival 	                                0 = No, 1 = Yes
-pclass 	    Ticket class 	                            1 = 1st, 2 = 2nd, 3 = 3rd
-sex 	    Sex 	
-Age 	    Age in years 	
-sibsp 	    # of siblings / spouses aboard the Titanic 	
-parch 	    # of parents / children aboard the Titanic 	
-ticket 	    Ticket number 	
-fare 	    Passenger fare 	
-cabin 	    Cabin number 	
-embarked 	Port of Embarkation 	                    C = Cherbourg, Q = Queenstown, S = Southampton
+As a novice in Artificial Intelligence I followed Ken Jee's guide. Because I am not fluent in Python and using the language in a web environment, I used JavaScript-ported versions of the many Python libraries used in the guide.
+
+For the algorithm I chose Naive Bayes, as it seemed to be the simplest to use. Not having to create an algorithm myself, left the bulk of work in preparing the data and creating visual parts of the webpage. 
+
+### References for building the AI
+- https://www.youtube.com/watch?v=I3FBJdiExcg
+- https://www.kaggle.com/code/kenjee/titanic-project-example/notebook
+
+### Libraries
+- https://scikitjs.org/
+- https://www.papaparse.com/
 
 
-Name            String:     50 Zeichen
-Age             Zahl:       3 Stellig
-Gender                      2 Radiobutton 
-Ticket class                3 Radiobutton
-Price           Zahl:       5 Stellig
-
-Cabin Sector                A-G or None
-Amount of Siblings/Spouses  2 Stellig
-Amount Children Parents     2 Stellig
-
-Port
-Cherbourg   Queenstown  Southampton
+## Dimensions of the data used:
+|Label          |Description                    |Format|
+| -----------   | -----------                   |----------- |
+Survival        |Survival                       |0 = No, 1 = Yes
+Pclass          |Ticket class                   |1 = 1st, 2 = 2nd, 3 = 3rd
+Name            |Passengername                  |String
+Sex 	        |Sex 	                        |male, female
+Age 	        |Age in years 	                |int
+SibSp           |Nr. of siblings/spouses aboard |int
+Parch           |Nr. of parents/children aboard |int
+Ticket 	        |Ticket number 	                |String
+Fare 	        |Passenger fare 	            |Float
+Cabin 	        |Cabin number 	                |String (A-G) followed with number
+Embarked        |Port of Embarkation            |C = Cherbourg, Q = Queenstown, S = Southampton
