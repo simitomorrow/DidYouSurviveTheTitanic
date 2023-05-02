@@ -14,9 +14,11 @@ To me the prospect of an AI predicting the outcome of a person's survival sounde
 
 ## Implementation
 
-As a novice in Artificial Intelligence I followed Ken Jee's guide. Because I am not fluent in Python and using the language in a web environment, I used JavaScript-ported versions of the many Python libraries used in the guide.
+### Backend Part
 
-For the algorithm I chose Naive Bayes, as it seemed to be the simplest to use. Not having to create an algorithm myself, left the bulk of work in preparing the data and creating visual parts of the webpage. 
+As novices in Artificial Intelligence we followed Ken Jee's guide. Because we were not fluent in Python and using the language in a web environment, we used JavaScript-ported versions of the many Python libraries used in the guide.
+
+For the algorithm we chose Naive Bayes, as it seemed to be the simplest to use. Not having to create an algorithm myself, left the bulk of work in preparing the data and creating visual parts of the webpage. 
 
 ### References for building the AI
 - https://www.youtube.com/watch?v=I3FBJdiExcg
@@ -25,7 +27,6 @@ For the algorithm I chose Naive Bayes, as it seemed to be the simplest to use. N
 ### Libraries
 - https://scikitjs.org/
 - https://www.papaparse.com/
-
 
 ## Dimensions of the data used:
 |Label          |Description                    |Format|
